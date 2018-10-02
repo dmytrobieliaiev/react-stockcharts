@@ -12,6 +12,7 @@ import {
 import EachFibRetracement from "./wrapper/EachFibRetracement";
 import MouseLocationIndicator from "./components/MouseLocationIndicator";
 import HoverTextNearMouse from "./components/HoverTextNearMouse";
+import settings from "../../settings";
 
 class FibonacciRetracement extends Component {
 	constructor(props) {
@@ -285,8 +286,8 @@ FibonacciRetracement.defaultProps = {
 		stroke: "#000000",
 		strokeWidth: 1,
 		strokeOpacity: 1,
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 11,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000",
 		edgeStroke: "#000000",
 		edgeFill: "#FFFFFF",

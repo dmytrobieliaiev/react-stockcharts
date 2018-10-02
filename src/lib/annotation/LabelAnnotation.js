@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { functor } from "../utils";
+import settings from "../../settings";
 
 class LabelAnnotation extends Component {
 	constructor(props) {
@@ -81,8 +82,8 @@ LabelAnnotation.propTypes = {
 
 export const defaultProps = {
 	textAnchor: "middle",
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	fill: "#000000",
 	opacity: 1,
 	rotate: 0,

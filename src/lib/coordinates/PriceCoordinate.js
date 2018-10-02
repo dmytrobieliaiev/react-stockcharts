@@ -7,6 +7,7 @@ import { drawOnCanvas, renderSVG } from "./EdgeCoordinateV3";
 import GenericChartComponent from "../GenericChartComponent";
 import { getAxisCanvas } from "../GenericComponent";
 import { functor, strokeDashTypes } from "../utils";
+import settings from "../../settings";
 
 class PriceCoordinate extends Component {
 	constructor(props) {
@@ -75,8 +76,8 @@ PriceCoordinate.defaultProps = {
 	opacity: 1,
 	lineOpacity: 0.2,
 	lineStroke: "#000000",
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	textFill: "#FFFFFF",
 	strokeOpacity: 1,
 	strokeWidth: 1,

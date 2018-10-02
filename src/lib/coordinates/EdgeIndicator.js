@@ -9,6 +9,7 @@ import GenericChartComponent from "../GenericChartComponent";
 import { getAxisCanvas } from "../GenericComponent";
 
 import { first, last, isDefined, functor, noop, strokeDashTypes } from "../utils";
+import settings from "../../settings";
 
 class EdgeIndicator extends Component {
 	constructor(props) {
@@ -83,8 +84,8 @@ EdgeIndicator.defaultProps = {
 	rectHeight: 20,
 	rectWidth: 50,
 	arrowWidth: 10,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	dx: 0,
 	hideLine: false,
 	fill: "#8a8a8a",

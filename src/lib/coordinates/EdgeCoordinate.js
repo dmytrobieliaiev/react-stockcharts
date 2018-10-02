@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { hexToRGBA, isDefined } from "../utils";
+import settings from "../../settings";
 
 class EdgeCoordinate extends Component {
 
@@ -80,8 +81,8 @@ EdgeCoordinate.defaultProps = {
 	hideLine: false,
 	fill: "#8a8a8a",
 	opacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	textFill: "#FFFFFF",
 	lineStroke: "#000000",
 	lineOpacity: 0.3,

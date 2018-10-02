@@ -8,6 +8,7 @@ import GenericChartComponent from "../GenericChartComponent";
 import { getMouseCanvas } from "../GenericComponent";
 
 import { isNotDefined } from "../utils";
+import settings from "../../settings";
 
 class MouseCoordinateY extends Component {
 	constructor(props) {
@@ -63,8 +64,8 @@ MouseCoordinateY.defaultProps = {
 	arrowWidth: 10,
 	fill: "#525252",
 	opacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	textFill: "#FFFFFF",
 
 	// stroke: "#684F1D",

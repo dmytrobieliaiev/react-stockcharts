@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Axis from "./Axis";
+import settings from "../../settings";
 
 class YAxis extends Component {
 	constructor(props, context) {
@@ -60,8 +61,8 @@ YAxis.defaultProps = {
 	tickPadding: 6,
 	tickStroke: "#000000",
 	tickStrokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	fontWeight: 400,
 	yZoomWidth: 40,
 	zoomEnabled: true,

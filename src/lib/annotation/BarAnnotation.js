@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { functor } from "../utils";
+import settings from "../../settings";
 
 class BarAnnotation extends Component {
 	constructor(props) {
@@ -176,9 +177,9 @@ BarAnnotation.defaultProps = {
 	opacity: 1,
 	fill: "#000000",
 	textAnchor: "middle",
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 10,
-	textFill: "#000000",
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeSmall,
+	textFill: settings.fontColor,
 	textOpacity: 1,
 	textIconFill: "#000000",
 	textIconFontSize: 10,

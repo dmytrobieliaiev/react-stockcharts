@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 import GenericChartComponent from "../GenericChartComponent";
 import { getMouseCanvas } from "../GenericComponent";
+import settings from "../../settings";
 
 
 const propTypes = {
@@ -44,8 +45,8 @@ const defaultProps = {
 	text: {
 		fontStyle: "",
 		fontWeight: "",
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 13,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeBig,
 		fill: "rgb(35, 35, 35)"
 	},
 	bg: {

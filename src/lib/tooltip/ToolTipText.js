@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import settings from "../../settings";
 
 class ToolTipText extends Component {
 	render() {
@@ -20,8 +21,8 @@ ToolTipText.propTypes = {
 };
 
 ToolTipText.defaultProps = {
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 11,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeSmall,
 };
 
 export default ToolTipText;

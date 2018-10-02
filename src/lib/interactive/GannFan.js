@@ -12,6 +12,7 @@ import {
 import EachGannFan from "./wrapper/EachGannFan";
 import MouseLocationIndicator from "./components/MouseLocationIndicator";
 import HoverTextNearMouse from "./components/HoverTextNearMouse";
+import settings from "../../settings";
 
 class GannFan extends Component {
 	constructor(props) {
@@ -208,8 +209,8 @@ GannFan.defaultProps = {
 			"#a65628",
 			"#f781bf",
 		],
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 12,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000",
 	},
 
