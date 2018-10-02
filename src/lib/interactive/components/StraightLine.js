@@ -20,6 +20,17 @@ class StraightLine extends Component {
 		this.drawOnCanvas = this.drawOnCanvas.bind(this);
 		this.isHover = this.isHover.bind(this);
 	}
+	componentDidMount() {
+		if (this.element) {
+			this.element.addEventListener("click", this.props.onSelect);
+		}
+	}
+
+	componentWillUnmount() {
+		if (this.element) {
+			this.element.removeEventListener("click", this.props.onSelect);
+		}
+	}
 	isHover(moreProps) {
 		const { tolerance, onHover } = this.props;
 
@@ -65,6 +76,7 @@ class StraightLine extends Component {
 		const { x1, y1, x2, y2 } = helper(this.props, moreProps);
 		return (
 			<line
+				ref={ref => this.element = ref}
 				x1={x1} y1={y1} x2={x2} y2={y2}
 				stroke={stroke} strokeWidth={lineWidth}
 				strokeDasharray={getStrokeDasharray(strokeDasharray)}
@@ -305,6 +317,7 @@ StraightLine.propTypes = {
 	onDragComplete: PropTypes.func.isRequired,
 	onHover: PropTypes.func,
 	onUnHover: PropTypes.func,
+	onSelect: PropTypes.func,
 
 	defaultClassName: PropTypes.string,
 
@@ -324,6 +337,7 @@ StraightLine.defaultProps = {
 	onDragStart: noop,
 	onDrag: noop,
 	onDragComplete: noop,
+	onSelect: noop,
 
 	edgeStrokeWidth: 3,
 	edgeStroke: "#000000",

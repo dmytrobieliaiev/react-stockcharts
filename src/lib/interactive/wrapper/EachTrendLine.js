@@ -160,6 +160,7 @@ class EachTrendLine extends Component {
 			<StraightLine
 				ref={this.saveNodeType("line")}
 				selected={selected || hover}
+				onSelect={this.onSelect}
 				onHover={this.handleHover}
 				onUnHover={this.handleHover}
 				x1Value={x1Value}

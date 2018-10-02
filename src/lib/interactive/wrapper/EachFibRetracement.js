@@ -148,7 +148,7 @@ class EachFibRetracement extends Component {
 		const { edgeStroke, edgeFill, nsEdgeFill, edgeStrokeWidth, r } = appearance;
 		const { hoverText, selected } = this.props;
 		const { hover } = this.state;
-		const { onDragComplete } = this.props;
+		const { onDragComplete, onSelect } = this.props;
 		const lines = helper({ x1, x2, y1, y2 });
 		const { enable: hoverTextEnabled, ...restHoverTextProps } = hoverText;
 
@@ -224,6 +224,7 @@ class EachFibRetracement extends Component {
 						onDragStart={this.handleLineDragStart}
 						onDrag={dragHandler}
 						onDragComplete={onDragComplete}
+						onSelect={onSelect}
 					/>
 					<Text
 						selected={selected}
@@ -310,6 +311,7 @@ EachFibRetracement.propTypes = {
 	index: PropTypes.number,
 	onDrag: PropTypes.func.isRequired,
 	onDragComplete: PropTypes.func.isRequired,
+	onSelect: PropTypes.func.isRequired
 };
 
 EachFibRetracement.defaultProps = {
@@ -333,6 +335,7 @@ EachFibRetracement.defaultProps = {
 
 	onDrag: noop,
 	onDragComplete: noop,
+	onSelect: noop,
 
 	hoverText: {
 		enable: false,

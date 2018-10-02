@@ -8,7 +8,7 @@
 		"ecmaFeatures": {
 			"jsx": true,
 			"experimentalObjectRestSpread": true,
-		},
+		}
 	},
 	"env": {
 		"browser": true,
@@ -54,6 +54,7 @@
 		"react/prefer-es6-class": 1,
 		"react/prop-types": 1,
 		"react/react-in-jsx-scope": 1,
+		"react/no-deprecated": 0,
 
 		"const-immutable/no-mutation": 2,
 

@@ -124,7 +124,7 @@ class TrendLine extends Component {
 		}
 	}
 	render() {
-		const { appearance } = this.props;
+		const { appearance, onSelect } = this.props;
 		const { enabled, snap, shouldDisableSnap, snapTo, type } = this.props;
 		const { currentPositionRadius, currentPositionStroke } = this.props;
 		const { currentPositionstrokeOpacity, currentPositionStrokeWidth } = this.props;
@@ -169,6 +169,7 @@ class TrendLine extends Component {
 					hoverText={hoverText}
 					onDrag={this.handleDragLine}
 					onDragComplete={this.handleDragLineComplete}
+					onSelect={onSelect}
 					edgeInteractiveCursor="react-stockcharts-move-cursor"
 					lineInteractiveCursor="react-stockcharts-move-cursor"
 				/>;
