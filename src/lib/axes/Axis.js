@@ -310,14 +310,14 @@ function drawAxisLine(ctx, props, range) {
 }
 
 function Tick(props) {
-	const { tickLabelFill, tickStroke, tickStrokeOpacity, tickStrokeDasharray, tickStrokeWidth, textAnchor, fontSize, fontFamily, fontWeight } = props;
+	const { tickLabelFill, stroke, tickStrokeOpacity, tickStrokeDasharray, tickStrokeWidth, textAnchor, fontSize, fontFamily, fontWeight } = props;
 	const { x1, y1, x2, y2, labelX, labelY, dy } = props;
 	return (
 		<g className="tick">
 			<line
 				shapeRendering="crispEdges"
 				opacity={tickStrokeOpacity}
-				stroke={tickStroke}
+				stroke={stroke}
 				strokeWidth={tickStrokeWidth}
 				strokeDasharray={getStrokeDasharray(tickStrokeDasharray)}
 				x1={x1} y1={y1}
@@ -344,6 +344,7 @@ Tick.propTypes = {
 	labelX: PropTypes.number.isRequired,
 	labelY: PropTypes.number.isRequired,
 	dy: PropTypes.string.isRequired,
+	stroke: PropTypes.string.isRequired,
 	tickStroke: PropTypes.string,
 	tickLabelFill: PropTypes.string,
 	tickStrokeWidth: PropTypes.number,
@@ -360,8 +361,8 @@ Tick.propTypes = {
 
 function axisTicksSVG(props, scale) {
 	const result = tickHelper(props, scale);
-
-	const { tickLabelFill, stroke, tickStroke, tickStrokeOpacity, tickStrokeWidth, tickStrokeDasharray, textAnchor } = result;
+	const stroke = "#464646";
+	const { tickLabelFill, tickStroke, tickStrokeOpacity, tickStrokeWidth, tickStrokeDasharray, textAnchor } = result;
 	const { fontSize, fontFamily, fontWeight, ticks, format } = result;
 
 	const { dy } = result;
