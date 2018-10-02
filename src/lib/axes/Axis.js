@@ -361,7 +361,7 @@ Tick.propTypes = {
 function axisTicksSVG(props, scale) {
 	const result = tickHelper(props, scale);
 
-	const { tickLabelFill, tickStroke, tickStrokeOpacity, tickStrokeWidth, tickStrokeDasharray, textAnchor } = result;
+	const { tickLabelFill, stroke, tickStroke, tickStrokeOpacity, tickStrokeWidth, tickStrokeDasharray, textAnchor } = result;
 	const { fontSize, fontFamily, fontWeight, ticks, format } = result;
 
 	const { dy } = result;
@@ -371,6 +371,7 @@ function axisTicksSVG(props, scale) {
 			{ticks.map((tick, idx) => {
 				return (
 					<Tick key={idx}
+						stroke={stroke}
 						tickStroke={tickStroke}
 						tickLabelFill={tickLabelFill}
 						tickStrokeWidth={tickStrokeWidth}

@@ -14,6 +14,7 @@ import {
 } from "./utils";
 import EachInteractiveYCoordinate from "./wrapper/EachInteractiveYCoordinate";
 import HoverTextNearMouse from "./components/HoverTextNearMouse";
+import settings from "../../settings";
 
 class InteractiveYCoordinate extends Component {
 	constructor(props) {
@@ -176,8 +177,8 @@ InteractiveYCoordinate.defaultProps = {
 		strokeWidth: 1,
 
 		textFill: "#6574CD",
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 12,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontStyle: "normal",
 		fontWeight: "normal",
 		text: "Alert",
