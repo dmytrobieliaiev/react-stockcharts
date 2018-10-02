@@ -6,6 +6,7 @@ import GenericComponent from "../GenericComponent";
 import { sum } from "d3-array";
 
 import { first, last, isNotDefined, isDefined, hexToRGBA } from "../utils";
+import settings from "../../settings";
 
 class HoverTooltip extends Component {
 	constructor(props) {
@@ -96,8 +97,8 @@ HoverTooltip.defaultProps = {
 	opacity: 0.8,
 	backgroundShapeSVG: backgroundShapeSVG,
 	backgroundShapeCanvas: backgroundShapeCanvas,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeSmall,
 };
 
 const PADDING = 5;

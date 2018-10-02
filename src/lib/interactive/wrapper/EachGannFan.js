@@ -8,6 +8,7 @@ import { saveNodeType, isHover } from "../utils";
 import ClickableCircle from "../components/ClickableCircle";
 import GannFan from "../components/GannFan";
 import HoverTextNearMouse from "../components/HoverTextNearMouse";
+import settings from "../../../settings";
 
 class EachGannFan extends Component {
 	constructor(props) {
@@ -301,8 +302,8 @@ EachGannFan.defaultProps = {
 			"#e377c2",
 			"#7f7f7f",
 		],
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 10,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000",
 	},
 

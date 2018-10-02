@@ -10,6 +10,7 @@ import StraightLine, { generateLine } from "../components/StraightLine";
 import ClickableCircle from "../components/ClickableCircle";
 import HoverTextNearMouse from "../components/HoverTextNearMouse";
 import Text from "../components/Text";
+import settings from "../../../settings";
 
 class EachFibRetracement extends Component {
 	constructor(props) {
@@ -322,8 +323,8 @@ EachFibRetracement.defaultProps = {
 		stroke: "#000000",
 		strokeWidth: 1,
 		strokeOpacity: 1,
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 10,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000",
 		edgeStroke: "#000000",
 		edgeFill: "#FFFFFF",

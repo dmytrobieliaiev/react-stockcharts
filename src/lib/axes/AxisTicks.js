@@ -15,11 +15,11 @@ function tickTransform_svg_axisY(scale, tick) {
 
 class Tick extends Component {
 	render() {
-		const { transform, tickStroke, tickStrokeOpacity, textAnchor, fontSize, fontFamily } = this.props;
+		const { transform, stroke, tickStroke, tickStrokeOpacity, textAnchor, fontSize, fontFamily } = this.props;
 		const { x, y, x2, y2, dy } = this.props;
 		return (
 			<g className="tick" transform={`translate(${ transform[0] }, ${ transform[1] })`} >
-				<line shapeRendering="crispEdges" opacity={tickStrokeOpacity} stroke={tickStroke} x2={x2} y2={y2} />
+				<line shapeRendering="crispEdges" opacity={tickStrokeOpacity} stroke={stroke} x2={x2} y2={y2} />
 				<text
 					dy={dy} x={x} y={y}
 					fill={tickStroke}
@@ -36,6 +36,7 @@ class Tick extends Component {
 Tick.propTypes = {
 	transform: PropTypes.arrayOf(Number),
 	tickStroke: PropTypes.string,
+	stroke: PropTypes.string,
 	tickStrokeOpacity: PropTypes.number,
 	textAnchor: PropTypes.string,
 	fontSize: PropTypes.number,
@@ -65,13 +66,14 @@ Tick.drawOnCanvasStatic = (tick, ctx, result) => {
 class AxisTicks extends Component {
 	render() {
 		const result = AxisTicks.helper(this.props, this.props.scale);
-		const { ticks, scale, tickTransform, tickStroke, tickStrokeOpacity, dy, x, y, x2, y2, textAnchor, fontSize, fontFamily, format } = result;
+		const { ticks, scale, tickTransform, tickStroke, tickStrokeOpacity, dy, x, y, x2, y2, textAnchor, fontSize, fontFamily, format, stroke } = result;
 
 		return (
 			<g>
 				{ticks.map((tick, idx) => {
 					return (
 						<Tick key={idx} transform={tickTransform(scale, tick)}
+							stroke={stroke}
 							tickStroke={tickStroke} tickStrokeOpacity={tickStrokeOpacity}
 							dy={dy} x={x} y={y}
 							x2={x2} y2={y2} textAnchor={textAnchor}
@@ -91,6 +93,7 @@ AxisTicks.propTypes = {
 	ticks: PropTypes.array,
 	tickValues: PropTypes.array,
 	scale: PropTypes.func.isRequired,
+	stroke: PropTypes.string.isRequired,
 	tickStroke: PropTypes.string,
 	tickStrokeOpacity: PropTypes.number,
 };
@@ -99,6 +102,7 @@ AxisTicks.defaultProps = {
 	innerTickSize: 5,
 	tickPadding: 6,
 	ticks: [10],
+	stroke: "#000",
 	tickStroke: "#000",
 	tickStrokeOpacity: 1,
 };
