@@ -27,7 +27,9 @@ export function renderSVG(props) {
 		);
 	}
 	if (isDefined(edge.coordinateBase)) {
-		const { rectWidth, rectHeight, arrowWidth } = edge.coordinateBase;
+		const { rectHeight, arrowWidth } = edge.coordinateBase;
+
+		const rectWidth = 95;
 
 		const path =
 			edge.orient === "left"
@@ -123,16 +125,17 @@ function helper(props) {
 
 	let coordinateBase, coordinate;
 	if (isDefined(displayCoordinate)) {
-		const textAnchor = "middle"; // TODO: Below it is necessary to implement logic for the possibility of alignment from the right or from the left.
+		const textAnchor = "start"; // TODO: Below it is necessary to implement logic for the possibility of alignment from the right or from the left.
 
 		let edgeXRect, edgeYRect, edgeXText, edgeYText;
 
 		if (type === "horizontal") {
+			const textPadding = -14;
 			edgeXRect =
 				dx + (orient === "right" ? edgeAt + 1 : edgeAt - rectWidth - 1);
 			edgeYRect = y1 - rectHeight / 2 - strokeWidth;
 			edgeXText =
-				dx +
+				dx + textPadding +
 				(orient === "right"
 					? edgeAt + rectWidth / 2
 					: edgeAt - rectWidth / 2);
