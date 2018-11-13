@@ -17,7 +17,7 @@ class OHLCTooltip extends Component {
 		this.renderSVG = this.renderSVG.bind(this);
 	}
 	renderSVG(moreProps) {
-		const { displayValuesFor } = this.props;
+		const { displayValuesFor, hideOnEmpty } = this.props;
 		const {
 			xDisplayFormat,
 			accessor,
@@ -35,7 +35,9 @@ class OHLCTooltip extends Component {
 		let displayDate, open, high, low, close, volume, percent;
 		displayDate = open = high = low = close = volume = percent = displayTexts.na;
 
-		if (isDefined(currentItem) && isDefined(accessor(currentItem))) {
+		const isEmpty = isDefined(currentItem) && isDefined(accessor(currentItem));
+
+		if (isEmpty) {
 			const item = accessor(currentItem);
 			volume = isDefined(item.volume) ? volumeFormat(item.volume) : displayTexts.na;
 
@@ -62,6 +64,9 @@ class OHLCTooltip extends Component {
 			x,
 			y
 		};
+		if (hideOnEmpty && !isEmpty) {
+			return null;
+		}
 		return this.props.children(this.props, moreProps, itemsToDisplay);
 	}
 	render() {
@@ -78,6 +83,7 @@ class OHLCTooltip extends Component {
 OHLCTooltip.propTypes = {
 	className: PropTypes.string,
 	accessor: PropTypes.func,
+	hideOnEmpty: PropTypes.bool,
 	xDisplayFormat: PropTypes.func,
 	children: PropTypes.func,
 	volumeFormat: PropTypes.func,
@@ -104,6 +110,7 @@ const displayTextsDefault = {
 };
 
 OHLCTooltip.defaultProps = {
+	hideOnEmpty: true,
 	accessor: d => {
 		return {
 			date: d.date,
