@@ -15,6 +15,7 @@ import { drawOnCanvas as _drawOnCanvas, renderSVG as _renderSVG } from "./EdgeCo
 import GenericChartComponent from "../GenericChartComponent";
 import { getAxisCanvas } from "../GenericComponent";
 import { functor, strokeDashTypes } from "../utils";
+import settings from "../../settings";
 
 var PriceCoordinate = function (_Component) {
 	_inherits(PriceCoordinate, _Component);
@@ -93,8 +94,8 @@ PriceCoordinate.defaultProps = {
 	opacity: 1,
 	lineOpacity: 0.2,
 	lineStroke: "#000000",
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	textFill: "#FFFFFF",
 	strokeOpacity: 1,
 	strokeWidth: 1,

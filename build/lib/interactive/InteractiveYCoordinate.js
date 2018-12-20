@@ -30,6 +30,10 @@ var _HoverTextNearMouse = require("./components/HoverTextNearMouse");
 
 var _HoverTextNearMouse2 = _interopRequireDefault(_HoverTextNearMouse);
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -221,8 +225,8 @@ InteractiveYCoordinate.defaultProps = {
 		strokeWidth: 1,
 
 		textFill: "#6574CD",
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 12,
+		fontFamily: _settings2.default.fontFamily,
+		fontSize: _settings2.default.fontSizeSmall,
 		fontStyle: "normal",
 		fontWeight: "normal",
 		text: "Alert",

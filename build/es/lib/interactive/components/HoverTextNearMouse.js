@@ -16,6 +16,7 @@ import PropTypes from "prop-types";
 import GenericChartComponent from "../../GenericChartComponent";
 import { getMouseCanvas } from "../../GenericComponent";
 import { isDefined, hexToRGBA } from "../../utils";
+import settings from "../../../settings";
 
 var PADDING = 10;
 
@@ -138,8 +139,8 @@ HoverTextNearMouse.propTypes = {
 };
 
 HoverTextNearMouse.defaultProps = {
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	fill: "#000000",
 	bgFill: "#FA9325",
 	bgOpacity: 0.5

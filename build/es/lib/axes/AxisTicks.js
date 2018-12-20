@@ -37,6 +37,7 @@ var Tick = function (_Component) {
 		value: function render() {
 			var _props = this.props,
 			    transform = _props.transform,
+			    stroke = _props.stroke,
 			    tickStroke = _props.tickStroke,
 			    tickStrokeOpacity = _props.tickStrokeOpacity,
 			    textAnchor = _props.textAnchor,
@@ -52,7 +53,7 @@ var Tick = function (_Component) {
 			return React.createElement(
 				"g",
 				{ className: "tick", transform: "translate(" + transform[0] + ", " + transform[1] + ")" },
-				React.createElement("line", { shapeRendering: "crispEdges", opacity: tickStrokeOpacity, stroke: tickStroke, x2: x2, y2: y2 }),
+				React.createElement("line", { shapeRendering: "crispEdges", opacity: tickStrokeOpacity, stroke: stroke, x2: x2, y2: y2 }),
 				React.createElement(
 					"text",
 					{
@@ -73,6 +74,7 @@ var Tick = function (_Component) {
 Tick.propTypes = {
 	transform: PropTypes.arrayOf(Number),
 	tickStroke: PropTypes.string,
+	stroke: PropTypes.string,
 	tickStrokeOpacity: PropTypes.number,
 	textAnchor: PropTypes.string,
 	fontSize: PropTypes.number,
@@ -133,7 +135,8 @@ var AxisTicks = function (_Component2) {
 			    textAnchor = result.textAnchor,
 			    fontSize = result.fontSize,
 			    fontFamily = result.fontFamily,
-			    format = result.format;
+			    format = result.format,
+			    stroke = result.stroke;
 
 
 			return React.createElement(
@@ -143,6 +146,7 @@ var AxisTicks = function (_Component2) {
 					return React.createElement(
 						Tick,
 						{ key: idx, transform: tickTransform(scale, tick),
+							stroke: stroke,
 							tickStroke: tickStroke, tickStrokeOpacity: tickStrokeOpacity,
 							dy: dy, x: x, y: y,
 							x2: x2, y2: y2, textAnchor: textAnchor,
@@ -165,6 +169,7 @@ AxisTicks.propTypes = {
 	ticks: PropTypes.array,
 	tickValues: PropTypes.array,
 	scale: PropTypes.func.isRequired,
+	stroke: PropTypes.string.isRequired,
 	tickStroke: PropTypes.string,
 	tickStrokeOpacity: PropTypes.number
 };
@@ -173,6 +178,7 @@ AxisTicks.defaultProps = {
 	innerTickSize: 5,
 	tickPadding: 6,
 	ticks: [10],
+	stroke: "#000",
 	tickStroke: "#000",
 	tickStrokeOpacity: 1
 };

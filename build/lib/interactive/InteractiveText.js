@@ -36,6 +36,10 @@ var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 var _GenericComponent = require("../GenericComponent");
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -218,8 +222,8 @@ InteractiveText.defaultProps = {
 		bgFill: "#D3D3D3",
 		bgOpacity: 1,
 		textFill: "#F10040",
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 12,
+		fontFamily: _settings2.default.fontFamily,
+		fontSize: _settings2.default.fontSizeBig,
 		fontStyle: "normal",
 		fontWeight: "normal",
 		text: "Lorem ipsum..."

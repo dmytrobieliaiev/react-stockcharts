@@ -26,6 +26,10 @@ var _GenericComponent = require("../GenericComponent");
 
 var _utils = require("../utils");
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -104,8 +108,8 @@ MouseCoordinateY.defaultProps = {
 	arrowWidth: 10,
 	fill: "#525252",
 	opacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 13,
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeBig,
 	textFill: "#FFFFFF",
 
 	// stroke: "#684F1D",

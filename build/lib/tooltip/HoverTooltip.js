@@ -24,6 +24,10 @@ var _d3Array = require("d3-array");
 
 var _utils = require("../utils");
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -148,8 +152,8 @@ HoverTooltip.defaultProps = {
 	opacity: 0.8,
 	backgroundShapeSVG: backgroundShapeSVG,
 	backgroundShapeCanvas: backgroundShapeCanvas,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeSmall
 };
 
 var PADDING = 5;

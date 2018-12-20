@@ -34,14 +34,16 @@ var OHLCTooltip = function (_Component) {
 	_createClass(OHLCTooltip, [{
 		key: "renderSVG",
 		value: function renderSVG(moreProps) {
-			var displayValuesFor = this.props.displayValuesFor;
 			var _props = this.props,
-			    xDisplayFormat = _props.xDisplayFormat,
-			    accessor = _props.accessor,
-			    volumeFormat = _props.volumeFormat,
-			    ohlcFormat = _props.ohlcFormat,
-			    percentFormat = _props.percentFormat,
-			    displayTexts = _props.displayTexts;
+			    displayValuesFor = _props.displayValuesFor,
+			    hideOnEmpty = _props.hideOnEmpty;
+			var _props2 = this.props,
+			    xDisplayFormat = _props2.xDisplayFormat,
+			    accessor = _props2.accessor,
+			    volumeFormat = _props2.volumeFormat,
+			    ohlcFormat = _props2.ohlcFormat,
+			    percentFormat = _props2.percentFormat,
+			    displayTexts = _props2.displayTexts;
 			var _moreProps$chartConfi = moreProps.chartConfig,
 			    width = _moreProps$chartConfi.width,
 			    height = _moreProps$chartConfi.height;
@@ -59,7 +61,9 @@ var OHLCTooltip = function (_Component) {
 			    percent = void 0;
 			displayDate = open = high = low = close = volume = percent = displayTexts.na;
 
-			if (isDefined(currentItem) && isDefined(accessor(currentItem))) {
+			var isEmpty = isDefined(currentItem) && isDefined(accessor(currentItem));
+
+			if (isEmpty) {
 				var item = accessor(currentItem);
 				volume = isDefined(item.volume) ? volumeFormat(item.volume) : displayTexts.na;
 
@@ -91,6 +95,9 @@ var OHLCTooltip = function (_Component) {
 				x: x,
 				y: y
 			};
+			if (hideOnEmpty && !isEmpty) {
+				return null;
+			}
 			return this.props.children(this.props, moreProps, itemsToDisplay);
 		}
 	}, {
@@ -110,6 +117,7 @@ var OHLCTooltip = function (_Component) {
 OHLCTooltip.propTypes = {
 	className: PropTypes.string,
 	accessor: PropTypes.func,
+	hideOnEmpty: PropTypes.bool,
 	xDisplayFormat: PropTypes.func,
 	children: PropTypes.func,
 	volumeFormat: PropTypes.func,
@@ -136,6 +144,7 @@ var displayTextsDefault = {
 };
 
 OHLCTooltip.defaultProps = {
+	hideOnEmpty: true,
 	accessor: function accessor(d) {
 		return {
 			date: d.date,

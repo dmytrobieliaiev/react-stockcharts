@@ -29,10 +29,11 @@ export function renderSVG(props) {
 	}
 	if (isDefined(edge.coordinateBase)) {
 		var _edge$coordinateBase = edge.coordinateBase,
-		    rectWidth = _edge$coordinateBase.rectWidth,
 		    rectHeight = _edge$coordinateBase.rectHeight,
 		    arrowWidth = _edge$coordinateBase.arrowWidth;
 
+
+		var rectWidth = 95;
 
 		var path = edge.orient === "left" ? "M0,0L0," + rectHeight + "L" + rectWidth + "," + rectHeight + "L" + (rectWidth + arrowWidth) + ",10L" + rectWidth + ",0L0,0L0,0" : "M0," + arrowWidth + "L" + arrowWidth + "," + rectHeight + "L" + (rectWidth + arrowWidth) + "," + rectHeight + "L" + (rectWidth + arrowWidth) + ",0L" + arrowWidth + ",0L0," + arrowWidth;
 
@@ -124,7 +125,7 @@ function helper(props) {
 	var coordinateBase = void 0,
 	    coordinate = void 0;
 	if (isDefined(displayCoordinate)) {
-		var textAnchor = "middle"; // TODO: Below it is necessary to implement logic for the possibility of alignment from the right or from the left.
+		var textAnchor = "start"; // TODO: Below it is necessary to implement logic for the possibility of alignment from the right or from the left.
 
 		var edgeXRect = void 0,
 		    edgeYRect = void 0,
@@ -132,9 +133,10 @@ function helper(props) {
 		    edgeYText = void 0;
 
 		if (type === "horizontal") {
+			var textPadding = -14;
 			edgeXRect = dx + (orient === "right" ? edgeAt + 1 : edgeAt - rectWidth - 1);
 			edgeYRect = y1 - rectHeight / 2 - strokeWidth;
-			edgeXText = dx + (orient === "right" ? edgeAt + rectWidth / 2 : edgeAt - rectWidth / 2);
+			edgeXText = dx + textPadding + (orient === "right" ? edgeAt + rectWidth / 2 : edgeAt - rectWidth / 2);
 			edgeYText = y1;
 		} else {
 			var dy = orient === "bottom" ? strokeWidth - 1 : -strokeWidth + 1;

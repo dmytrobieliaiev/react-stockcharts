@@ -144,7 +144,8 @@ var StraightLine = function (_Component) {
 			    onDrag = _props6.onDrag,
 			    onDragComplete = _props6.onDragComplete,
 			    onHover = _props6.onHover,
-			    onUnHover = _props6.onUnHover;
+			    onUnHover = _props6.onUnHover,
+			    onClick = _props6.onClick;
 
 
 			return React.createElement(GenericChartComponent, {
@@ -157,6 +158,7 @@ var StraightLine = function (_Component) {
 				interactiveCursorClass: interactiveCursorClass,
 				selected: selected,
 
+				onClickWhenHover: onClick,
 				onDragStart: onDragStart,
 				onDrag: onDrag,
 				onDragComplete: onDragComplete,
@@ -409,6 +411,7 @@ StraightLine.propTypes = {
 	onEdge1Drag: PropTypes.func.isRequired,
 	onEdge2Drag: PropTypes.func.isRequired,
 	onDragStart: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
 	onDrag: PropTypes.func.isRequired,
 	onDragComplete: PropTypes.func.isRequired,
 	onHover: PropTypes.func,
@@ -433,6 +436,7 @@ StraightLine.defaultProps = {
 	onDragStart: noop,
 	onDrag: noop,
 	onDragComplete: noop,
+	onClick: noop,
 	onSelect: noop,
 
 	edgeStrokeWidth: 3,

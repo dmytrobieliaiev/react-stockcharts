@@ -61,14 +61,16 @@ var OHLCTooltip = function (_Component) {
 	_createClass(OHLCTooltip, [{
 		key: "renderSVG",
 		value: function renderSVG(moreProps) {
-			var displayValuesFor = this.props.displayValuesFor;
 			var _props = this.props,
-			    xDisplayFormat = _props.xDisplayFormat,
-			    accessor = _props.accessor,
-			    volumeFormat = _props.volumeFormat,
-			    ohlcFormat = _props.ohlcFormat,
-			    percentFormat = _props.percentFormat,
-			    displayTexts = _props.displayTexts;
+			    displayValuesFor = _props.displayValuesFor,
+			    hideOnEmpty = _props.hideOnEmpty;
+			var _props2 = this.props,
+			    xDisplayFormat = _props2.xDisplayFormat,
+			    accessor = _props2.accessor,
+			    volumeFormat = _props2.volumeFormat,
+			    ohlcFormat = _props2.ohlcFormat,
+			    percentFormat = _props2.percentFormat,
+			    displayTexts = _props2.displayTexts;
 			var _moreProps$chartConfi = moreProps.chartConfig,
 			    width = _moreProps$chartConfi.width,
 			    height = _moreProps$chartConfi.height;
@@ -86,7 +88,9 @@ var OHLCTooltip = function (_Component) {
 			    percent = void 0;
 			displayDate = open = high = low = close = volume = percent = displayTexts.na;
 
-			if ((0, _utils.isDefined)(currentItem) && (0, _utils.isDefined)(accessor(currentItem))) {
+			var isEmpty = (0, _utils.isDefined)(currentItem) && (0, _utils.isDefined)(accessor(currentItem));
+
+			if (isEmpty) {
 				var item = accessor(currentItem);
 				volume = (0, _utils.isDefined)(item.volume) ? volumeFormat(item.volume) : displayTexts.na;
 
@@ -118,6 +122,9 @@ var OHLCTooltip = function (_Component) {
 				x: x,
 				y: y
 			};
+			if (hideOnEmpty && !isEmpty) {
+				return null;
+			}
 			return this.props.children(this.props, moreProps, itemsToDisplay);
 		}
 	}, {
@@ -137,6 +144,7 @@ var OHLCTooltip = function (_Component) {
 OHLCTooltip.propTypes = {
 	className: _propTypes2.default.string,
 	accessor: _propTypes2.default.func,
+	hideOnEmpty: _propTypes2.default.bool,
 	xDisplayFormat: _propTypes2.default.func,
 	children: _propTypes2.default.func,
 	volumeFormat: _propTypes2.default.func,
@@ -163,6 +171,7 @@ var displayTextsDefault = {
 };
 
 OHLCTooltip.defaultProps = {
+	hideOnEmpty: true,
 	accessor: function accessor(d) {
 		return {
 			date: d.date,

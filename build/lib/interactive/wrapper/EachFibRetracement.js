@@ -42,6 +42,10 @@ var _Text = require("../components/Text");
 
 var _Text2 = _interopRequireDefault(_Text);
 
+var _settings = require("../../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -446,8 +450,8 @@ EachFibRetracement.defaultProps = {
 		stroke: "#000000",
 		strokeWidth: 1,
 		strokeOpacity: 1,
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 10,
+		fontFamily: _settings2.default.fontFamily,
+		fontSize: _settings2.default.fontSizeSmall,
 		fontFill: "#000000",
 		edgeStroke: "#000000",
 		edgeFill: "#FFFFFF",

@@ -16,6 +16,7 @@ import GenericComponent from "../GenericComponent";
 import { sum } from "d3-array";
 
 import { first, last, isNotDefined, isDefined, hexToRGBA } from "../utils";
+import settings from "../../settings";
 
 var HoverTooltip = function (_Component) {
 	_inherits(HoverTooltip, _Component);
@@ -131,8 +132,8 @@ HoverTooltip.defaultProps = {
 	opacity: 0.8,
 	backgroundShapeSVG: backgroundShapeSVG,
 	backgroundShapeCanvas: backgroundShapeCanvas,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeSmall
 };
 
 var PADDING = 5;

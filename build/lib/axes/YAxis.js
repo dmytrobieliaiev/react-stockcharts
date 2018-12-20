@@ -20,6 +20,10 @@ var _Axis = require("./Axis");
 
 var _Axis2 = _interopRequireDefault(_Axis);
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -103,8 +107,8 @@ YAxis.defaultProps = {
 	tickPadding: 6,
 	tickStroke: "#000000",
 	tickStrokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeBig,
 	fontWeight: 400,
 	yZoomWidth: 40,
 	zoomEnabled: true,

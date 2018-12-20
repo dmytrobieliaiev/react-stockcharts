@@ -20,6 +20,7 @@ import EachText from "./wrapper/EachText";
 import HoverTextNearMouse from "./components/HoverTextNearMouse";
 import GenericChartComponent from "../GenericChartComponent";
 import { getMouseCanvas } from "../GenericComponent";
+import settings from "../../settings";
 
 var InteractiveText = function (_Component) {
 	_inherits(InteractiveText, _Component);
@@ -195,8 +196,8 @@ InteractiveText.defaultProps = {
 		bgFill: "#D3D3D3",
 		bgOpacity: 1,
 		textFill: "#F10040",
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 12,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeBig,
 		fontStyle: "normal",
 		fontWeight: "normal",
 		text: "Lorem ipsum..."

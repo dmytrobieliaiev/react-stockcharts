@@ -34,6 +34,10 @@ var _HoverTextNearMouse = require("../components/HoverTextNearMouse");
 
 var _HoverTextNearMouse2 = _interopRequireDefault(_HoverTextNearMouse);
 
+var _settings = require("../../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -384,8 +388,8 @@ EachGannFan.defaultProps = {
 		edgeStrokeWidth: 1,
 		r: 5,
 		fill: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 10,
+		fontFamily: _settings2.default.fontFamily,
+		fontSize: _settings2.default.fontSizeSmall,
 		fontFill: "#000000"
 	},
 
@@ -395,7 +399,7 @@ EachGannFan.defaultProps = {
 	hoverText: _extends({}, _HoverTextNearMouse2.default.defaultProps, {
 		enable: true,
 		bgHeight: 18,
-		bgWidth: 120,
+		bgWidth: 140,
 		text: "Click to select object"
 	})
 };

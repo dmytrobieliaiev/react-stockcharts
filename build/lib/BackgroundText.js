@@ -20,6 +20,10 @@ var _PureComponent3 = _interopRequireDefault(_PureComponent2);
 
 var _utils = require("./utils");
 
+var _settings = require("../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -133,8 +137,8 @@ BackgroundText.defaultProps = {
 	fill: "#9E7523",
 	stroke: "#9E7523",
 	strokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeBig,
 	textAnchor: "middle"
 };
 

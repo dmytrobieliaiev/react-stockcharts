@@ -16,6 +16,10 @@ var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58,8 +62,8 @@ ToolTipText.propTypes = {
 };
 
 ToolTipText.defaultProps = {
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 11
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeSmall
 };
 
 exports.default = ToolTipText;

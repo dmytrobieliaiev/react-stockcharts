@@ -13,6 +13,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Axis from "./Axis";
+import settings from "../../settings";
 
 var YAxis = function (_Component) {
 	_inherits(YAxis, _Component);
@@ -87,8 +88,8 @@ YAxis.defaultProps = {
 	tickPadding: 6,
 	tickStroke: "#000000",
 	tickStrokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	fontWeight: 400,
 	yZoomWidth: 40,
 	zoomEnabled: true,

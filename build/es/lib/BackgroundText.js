@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import PureComponent from "./utils/PureComponent";
 
 import { hexToRGBA, isDefined } from "./utils";
+import settings from "../settings";
 
 var BackgroundText = function (_PureComponent) {
 	_inherits(BackgroundText, _PureComponent);
@@ -117,8 +118,8 @@ BackgroundText.defaultProps = {
 	fill: "#9E7523",
 	stroke: "#9E7523",
 	strokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	textAnchor: "middle"
 };
 

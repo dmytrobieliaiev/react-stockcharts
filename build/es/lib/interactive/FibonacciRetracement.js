@@ -18,6 +18,7 @@ import { terminate, saveNodeType, isHoverForInteractiveType } from "./utils";
 import EachFibRetracement from "./wrapper/EachFibRetracement";
 import MouseLocationIndicator from "./components/MouseLocationIndicator";
 import HoverTextNearMouse from "./components/HoverTextNearMouse";
+import settings from "../../settings";
 
 var FibonacciRetracement = function (_Component) {
 	_inherits(FibonacciRetracement, _Component);
@@ -191,7 +192,8 @@ var FibonacciRetracement = function (_Component) {
 			var retracements = this.props.retracements;
 			var _props2 = this.props,
 			    appearance = _props2.appearance,
-			    type = _props2.type;
+			    type = _props2.type,
+			    yDisplayFormat = _props2.yDisplayFormat;
 			var _props3 = this.props,
 			    currentPositionStroke = _props3.currentPositionStroke,
 			    currentPositionOpacity = _props3.currentPositionOpacity,
@@ -207,7 +209,8 @@ var FibonacciRetracement = function (_Component) {
 				interactive: false,
 				type: type,
 				appearance: appearance,
-				hoverText: hoverText
+				hoverText: hoverText,
+				yDisplayFormat: yDisplayFormat
 			}, current)) : null;
 			return React.createElement(
 				"g",
@@ -223,6 +226,7 @@ var FibonacciRetracement = function (_Component) {
 						selected: each.selected,
 						hoverText: hoverText
 					}, idx === overrideIndex ? override : each, {
+						yDisplayFormat: yDisplayFormat,
 						appearance: eachAppearance,
 						onDrag: _this5.handleDrag,
 						onDragComplete: _this5.handleDragComplete
@@ -269,6 +273,7 @@ FibonacciRetracement.propTypes = {
 	currentPositionRadius: PropTypes.number,
 
 	retracements: PropTypes.array.isRequired,
+	yDisplayFormat: PropTypes.func,
 
 	appearance: PropTypes.shape({
 		stroke: PropTypes.string.isRequired,
@@ -297,20 +302,21 @@ FibonacciRetracement.defaultProps = {
 	hoverText: _extends({}, HoverTextNearMouse.defaultProps, {
 		enable: true,
 		bgHeight: 18,
-		bgWidth: 120,
+		bgWidth: 140,
 		text: "Click to select object"
 	}),
 	currentPositionStroke: "#000000",
 	currentPositionOpacity: 1,
 	currentPositionStrokeWidth: 3,
 	currentPositionRadius: 4,
+	yDisplayFormat: noop,
 
 	appearance: {
 		stroke: "#000000",
 		strokeWidth: 1,
 		strokeOpacity: 1,
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 11,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000",
 		edgeStroke: "#000000",
 		edgeFill: "#FFFFFF",

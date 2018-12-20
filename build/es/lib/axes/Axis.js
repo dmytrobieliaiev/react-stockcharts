@@ -386,7 +386,7 @@ function drawAxisLine(ctx, props, range) {
 
 function Tick(props) {
 	var tickLabelFill = props.tickLabelFill,
-	    tickStroke = props.tickStroke,
+	    stroke = props.stroke,
 	    tickStrokeOpacity = props.tickStrokeOpacity,
 	    tickStrokeDasharray = props.tickStrokeDasharray,
 	    tickStrokeWidth = props.tickStrokeWidth,
@@ -408,7 +408,7 @@ function Tick(props) {
 		React.createElement("line", {
 			shapeRendering: "crispEdges",
 			opacity: tickStrokeOpacity,
-			stroke: tickStroke,
+			stroke: stroke,
 			strokeWidth: tickStrokeWidth,
 			strokeDasharray: getStrokeDasharray(tickStrokeDasharray),
 			x1: x1, y1: y1,
@@ -436,6 +436,7 @@ Tick.propTypes = {
 	labelX: PropTypes.number.isRequired,
 	labelY: PropTypes.number.isRequired,
 	dy: PropTypes.string.isRequired,
+	stroke: PropTypes.string.isRequired,
 	tickStroke: PropTypes.string,
 	tickLabelFill: PropTypes.string,
 	tickStrokeWidth: PropTypes.number,
@@ -449,7 +450,7 @@ Tick.propTypes = {
 
 function axisTicksSVG(props, scale) {
 	var result = tickHelper(props, scale);
-
+	var stroke = "#464646";
 	var tickLabelFill = result.tickLabelFill,
 	    tickStroke = result.tickStroke,
 	    tickStrokeOpacity = result.tickStrokeOpacity,
@@ -471,6 +472,7 @@ function axisTicksSVG(props, scale) {
 			return React.createElement(
 				Tick,
 				{ key: idx,
+					stroke: stroke,
 					tickStroke: tickStroke,
 					tickLabelFill: tickLabelFill,
 					tickStrokeWidth: tickStrokeWidth,

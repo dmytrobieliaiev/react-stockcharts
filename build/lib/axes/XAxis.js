@@ -20,6 +20,10 @@ var _Axis = require("./Axis");
 
 var _Axis2 = _interopRequireDefault(_Axis);
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -97,8 +101,8 @@ XAxis.defaultProps = {
 	tickPadding: 6,
 	tickStroke: "#000000", // tick/grid stroke
 	tickStrokeOpacity: 1,
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: _settings2.default.fontFamily,
+	fontSize: _settings2.default.fontSizeBig,
 	fontWeight: 400,
 	xZoomHeight: 25,
 	zoomEnabled: true,

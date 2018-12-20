@@ -20,6 +20,7 @@ import { saveNodeType, isHover } from "../utils";
 import ClickableCircle from "../components/ClickableCircle";
 import GannFan from "../components/GannFan";
 import HoverTextNearMouse from "../components/HoverTextNearMouse";
+import settings from "../../../settings";
 
 var EachGannFan = function (_Component) {
 	_inherits(EachGannFan, _Component);
@@ -361,8 +362,8 @@ EachGannFan.defaultProps = {
 		edgeStrokeWidth: 1,
 		r: 5,
 		fill: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 10,
+		fontFamily: settings.fontFamily,
+		fontSize: settings.fontSizeSmall,
 		fontFill: "#000000"
 	},
 
@@ -372,7 +373,7 @@ EachGannFan.defaultProps = {
 	hoverText: _extends({}, HoverTextNearMouse.defaultProps, {
 		enable: true,
 		bgHeight: 18,
-		bgWidth: 120,
+		bgWidth: 140,
 		text: "Click to select object"
 	})
 };

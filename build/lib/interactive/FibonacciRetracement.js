@@ -32,6 +32,10 @@ var _HoverTextNearMouse = require("./components/HoverTextNearMouse");
 
 var _HoverTextNearMouse2 = _interopRequireDefault(_HoverTextNearMouse);
 
+var _settings = require("../../settings");
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -214,7 +218,8 @@ var FibonacciRetracement = function (_Component) {
 			var retracements = this.props.retracements;
 			var _props2 = this.props,
 			    appearance = _props2.appearance,
-			    type = _props2.type;
+			    type = _props2.type,
+			    yDisplayFormat = _props2.yDisplayFormat;
 			var _props3 = this.props,
 			    currentPositionStroke = _props3.currentPositionStroke,
 			    currentPositionOpacity = _props3.currentPositionOpacity,
@@ -230,7 +235,8 @@ var FibonacciRetracement = function (_Component) {
 				interactive: false,
 				type: type,
 				appearance: appearance,
-				hoverText: hoverText
+				hoverText: hoverText,
+				yDisplayFormat: yDisplayFormat
 			}, current)) : null;
 			return _react2.default.createElement(
 				"g",
@@ -246,6 +252,7 @@ var FibonacciRetracement = function (_Component) {
 						selected: each.selected,
 						hoverText: hoverText
 					}, idx === overrideIndex ? override : each, {
+						yDisplayFormat: yDisplayFormat,
 						appearance: eachAppearance,
 						onDrag: _this5.handleDrag,
 						onDragComplete: _this5.handleDragComplete
@@ -292,6 +299,7 @@ FibonacciRetracement.propTypes = {
 	currentPositionRadius: _propTypes2.default.number,
 
 	retracements: _propTypes2.default.array.isRequired,
+	yDisplayFormat: _propTypes2.default.func,
 
 	appearance: _propTypes2.default.shape({
 		stroke: _propTypes2.default.string.isRequired,
@@ -320,20 +328,21 @@ FibonacciRetracement.defaultProps = {
 	hoverText: _extends({}, _HoverTextNearMouse2.default.defaultProps, {
 		enable: true,
 		bgHeight: 18,
-		bgWidth: 120,
+		bgWidth: 140,
 		text: "Click to select object"
 	}),
 	currentPositionStroke: "#000000",
 	currentPositionOpacity: 1,
 	currentPositionStrokeWidth: 3,
 	currentPositionRadius: 4,
+	yDisplayFormat: _utils.noop,
 
 	appearance: {
 		stroke: "#000000",
 		strokeWidth: 1,
 		strokeOpacity: 1,
-		fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-		fontSize: 11,
+		fontFamily: _settings2.default.fontFamily,
+		fontSize: _settings2.default.fontSizeSmall,
 		fontFill: "#000000",
 		edgeStroke: "#000000",
 		edgeFill: "#FFFFFF",

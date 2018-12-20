@@ -11,6 +11,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { functor } from "../utils";
+import settings from "../../settings";
 
 var LabelAnnotation = function (_Component) {
 	_inherits(LabelAnnotation, _Component);
@@ -133,8 +134,8 @@ LabelAnnotation.propTypes = {
 
 export var defaultProps = {
 	textAnchor: "middle",
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 12,
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeBig,
 	fill: "#000000",
 	opacity: 1,
 	rotate: 0,

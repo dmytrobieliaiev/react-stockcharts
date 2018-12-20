@@ -50,6 +50,7 @@ var Tick = function (_Component) {
 		value: function render() {
 			var _props = this.props,
 			    transform = _props.transform,
+			    stroke = _props.stroke,
 			    tickStroke = _props.tickStroke,
 			    tickStrokeOpacity = _props.tickStrokeOpacity,
 			    textAnchor = _props.textAnchor,
@@ -65,7 +66,7 @@ var Tick = function (_Component) {
 			return _react2.default.createElement(
 				"g",
 				{ className: "tick", transform: "translate(" + transform[0] + ", " + transform[1] + ")" },
-				_react2.default.createElement("line", { shapeRendering: "crispEdges", opacity: tickStrokeOpacity, stroke: tickStroke, x2: x2, y2: y2 }),
+				_react2.default.createElement("line", { shapeRendering: "crispEdges", opacity: tickStrokeOpacity, stroke: stroke, x2: x2, y2: y2 }),
 				_react2.default.createElement(
 					"text",
 					{
@@ -86,6 +87,7 @@ var Tick = function (_Component) {
 Tick.propTypes = {
 	transform: _propTypes2.default.arrayOf(Number),
 	tickStroke: _propTypes2.default.string,
+	stroke: _propTypes2.default.string,
 	tickStrokeOpacity: _propTypes2.default.number,
 	textAnchor: _propTypes2.default.string,
 	fontSize: _propTypes2.default.number,
@@ -146,7 +148,8 @@ var AxisTicks = function (_Component2) {
 			    textAnchor = result.textAnchor,
 			    fontSize = result.fontSize,
 			    fontFamily = result.fontFamily,
-			    format = result.format;
+			    format = result.format,
+			    stroke = result.stroke;
 
 
 			return _react2.default.createElement(
@@ -156,6 +159,7 @@ var AxisTicks = function (_Component2) {
 					return _react2.default.createElement(
 						Tick,
 						{ key: idx, transform: tickTransform(scale, tick),
+							stroke: stroke,
 							tickStroke: tickStroke, tickStrokeOpacity: tickStrokeOpacity,
 							dy: dy, x: x, y: y,
 							x2: x2, y2: y2, textAnchor: textAnchor,
@@ -178,6 +182,7 @@ AxisTicks.propTypes = {
 	ticks: _propTypes2.default.array,
 	tickValues: _propTypes2.default.array,
 	scale: _propTypes2.default.func.isRequired,
+	stroke: _propTypes2.default.string.isRequired,
 	tickStroke: _propTypes2.default.string,
 	tickStrokeOpacity: _propTypes2.default.number
 };
@@ -186,6 +191,7 @@ AxisTicks.defaultProps = {
 	innerTickSize: 5,
 	tickPadding: 6,
 	ticks: [10],
+	stroke: "#000",
 	tickStroke: "#000",
 	tickStrokeOpacity: 1
 };

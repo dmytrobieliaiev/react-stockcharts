@@ -10,6 +10,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import settings from "../../settings";
 
 var ToolTipText = function (_Component) {
 	_inherits(ToolTipText, _Component);
@@ -45,8 +46,8 @@ ToolTipText.propTypes = {
 };
 
 ToolTipText.defaultProps = {
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 11
+	fontFamily: settings.fontFamily,
+	fontSize: settings.fontSizeSmall
 };
 
 export default ToolTipText;

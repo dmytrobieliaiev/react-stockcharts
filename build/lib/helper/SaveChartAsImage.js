@@ -54,13 +54,13 @@ var SaveChartAsImage = {
 		return this.saveWithBG(doc, container, "white", cb);
 	},
 	saveWithDarkBG: function saveWithDarkBG(doc, container, cb) {
-		return this.saveWithBG(doc, container, "#303030", cb);
+		return this.saveWithBG(doc, container, "#1a1a1a", cb);
 	},
 	saveWithBG: function saveWithBG(doc, container, background, cb) {
 		return this.save(doc, container, background, cb);
 	},
 	saveChartAsImage: function saveChartAsImage(container) {
-		this.saveWithWhiteBG(document, container, function (src) {
+		this.saveWithDarkBG(document, container, function (src) {
 			var a = document.createElement("a");
 			a.setAttribute("href", src);
 			a.setAttribute("download", "Chart.png");

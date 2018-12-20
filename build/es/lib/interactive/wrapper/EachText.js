@@ -210,7 +210,7 @@ EachText.defaultProps = {
 	hoverText: _extends({}, HoverTextNearMouse.defaultProps, {
 		enable: true,
 		bgHeight: 18,
-		bgWidth: 120,
+		bgWidth: 140,
 		text: "Click to select object"
 	})
 };
